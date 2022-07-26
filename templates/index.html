@@ -1,15 +1,29 @@
 <head>
-    <title> Contatos </title>
+    <title> AlbaBlog </title>
 </head>
-<body>
-    <a href="https://www.oceanbrasil.com/"> Isso é um link </a>
-    <h1>Albafica de Peixes</h1>
-    <h2>albafica@gmail.com</h2>
-    <h3>(11) 3057-5489</3>
+<body> 
+    <h1> Meu Blog </h1>
+    
+    {% for post in posts %}
 
-    <ol>
-        <li> item1 </li>
-        <li> item2</li>
-    </ol>
+    <article class="post">
+        <header>
+                <div>
+                    <h1>{{post.title}}</h1>
+                    <div class = "about">
+                        by {{post.author}} 
+                        on {{post.created.strftime('%d-%b-%Y')}}
+                </div>
+
+        </header>
+        <p class ="body"> {{post.body}}</p>
+        
+    </article>
+    
+    {% if not loop.last %}
+        <hr>
+    {% endif %}
+    {%endfor%}
+
 </body>
 </html>
